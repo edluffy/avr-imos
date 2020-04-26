@@ -1,0 +1,78 @@
+#include "util/delay.h"
+#include <string.h>
+
+#include "menu.h"
+#include "io.h"
+
+
+// TODO: 
+// graphical imos start screen
+// turn off DIDR0 reg.
+// get prescaler as low as possible
+// smart grid redraw (if drawn last time, leave it)
+// draw top grid text depending on active option
+int main(void)
+{
+	sei();
+	init_rot();
+	init_adc();
+	init_lcd();
+	set_orientation(West);
+
+	draw_load_bar(GREEN);
+
+	create_grid();
+
+	clear_screen();
+
+	strcpy(vscaleBox.text, "2V");
+	draw_display_box(&vscaleBox);
+
+	strcpy(coupleBox.text, "DC");
+	draw_display_box(&coupleBox);
+
+	strcpy(timeBox.text, "10us");
+	draw_display_box(&timeBox);
+
+	strcpy(triggerBox.text, "RISING");
+	draw_display_box(&triggerBox);
+
+	strcpy(resBox.text, "0.08V");
+	draw_display_box(&resBox);
+
+	int vSnap[280];
+
+	volatile double vScale = 100;
+
+	for/*ever*/(;;)
+	{
+
+		read_adc(vSnap, 280);
+		draw_data(vSnap);
+		_delay_ms(10);
+
+		// TODO: add plot sizing
+
+     		draw_grid();
+		draw_cursor(vscaleBox.value, 0);
+
+		read_pushb();
+
+		debugPrint(vScale);
+
+		// only do this if there has been a change
+		switch(read_pushb()){
+			case 0: // Voltage scaling option
+				vscaleBox.active = 1;
+
+				rotP = &vScale;
+				rStep = 1;
+				*rotP += 1;
+
+				draw_display_box(&vscaleBox);
+				break;
+
+		}
+
+	}
+}

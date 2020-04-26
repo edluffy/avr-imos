@@ -1,0 +1,15 @@
+PKG=main
+CC=avr-gcc
+OBJCOPY=avr-objcopy
+#CFLAGS = -mmcu=ATmega644P -L $(shell pwd)/lcdlib -DF_CPU=12000000 -Wall -Os
+
+
+# test flags
+CFLAGS = -mmcu=atmega644p -L $(shell pwd)/lcdlib -DF_CPU=12000000 -Wall -Os -u vfprintf -lprintf_flt -lm
+
+OFLAGS = -O ihex
+
+upload: $(PKG).c
+	avr-gcc $(CFLAGS) $(PKG).c -o obj/$(PKG).elf -llcd
+	avr-objcopy $(OFLAGS) obj/$(PKG).elf obj/$(PKG).hex
+	avrdude -c usbasp -p m644p -U flash:w:obj/$(PKG).hex

@@ -1,0 +1,398 @@
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 1
+
+
+   1               		.file	"font.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               	.global	font5x7
+  11               		.section	.progmem.data,"a",@progbits
+  12               		.type	font5x7, @object
+  13               		.size	font5x7, 475
+  14               	font5x7:
+  15 0000 00        		.string	""
+  16 0001 00        		.string	""
+  17 0002 00        		.string	""
+  18 0003 00        		.string	""
+  19 0004 00        		.string	""
+  20 0005 00        		.string	""
+  21 0006 00        		.string	""
+  22 0007 5F00      		.string	"_"
+  23 0009 00        		.string	""
+  24 000a 00        		.string	""
+  25 000b 0300      		.string	"\003"
+  26 000d 0300      		.string	"\003"
+  27 000f 143E 143E 		.string	"\024>\024>\024$*\177*\022C3\bfa6IU\"P"
+  27      1424 2A7F 
+  27      2A12 4333 
+  27      0866 6136 
+  27      4955 2250 
+  28 0024 0503 00   		.string	"\005\003"
+  29 0027 00        		.string	""
+  30 0028 00        		.string	""
+  31 0029 1C22 4100 		.string	"\034\"A"
+  32 002d 00        		.string	""
+  33 002e 4122 1C00 		.string	"A\"\034"
+  34 0032 1408 3E08 		.string	"\024\b>\b\024\b\b>\b\b"
+  34      1408 083E 
+  34      0808 00
+  35 003d 5030 00   		.string	"P0"
+  36 0040 00        		.string	""
+  37 0041 0808 0808 		.string	"\b\b\b\b\b"
+  37      0800 
+  38 0047 6060 00   		.string	"``"
+  39 004a 00        		.string	""
+  40 004b 2010 0804 		.string	" \020\b\004\002>QIE>"
+  40      023E 5149 
+  40      453E 00
+  41 0056 0402 7F00 		.string	"\004\002\177"
+  42 005a 4261 5149 		.string	"BaQIF\"AII6\030\024\022\177\020'EEE9>III2\001\001q\t\0076III6&III>"
+  42      4622 4149 
+  42      4936 1814 
+  42      127F 1027 
+  42      4545 4539 
+  43 0083 3636 00   		.string	"66"
+  44 0086 00        		.string	""
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 2
+
+
+  45 0087 00        		.string	""
+  46 0088 5636 00   		.string	"V6"
+  47 008b 00        		.string	""
+  48 008c 0814 2241 		.string	"\b\024\"A"
+  48      00
+  49 0091 1414 1414 		.string	"\024\024\024\024\024"
+  49      1400 
+  50 0097 4122 1408 		.string	"A\"\024\b\002\001Q\t\006>AYU^~\t\t\t~\177III6>AAA\"\177AAA>\177IIIA\177\t\t\t\001>AAI:\17
+  50      0201 5109 
+  50      063E 4159 
+  50      555E 7E09 
+  50      0909 7E7F 
+  51 00ce 417F 4100 		.string	"A\177A"
+  52 00d2 3040 4040 		.string	"0@@@?\177\b\024\"A\177@@@@\177\002\f\002\177\177\002\004\b\177>AAA>\177\t\t\t\006\036!!!^
+  52      3F7F 0814 
+  52      2241 7F40 
+  52      4040 407F 
+  52      020C 027F 
+  53 0128 7F41 00   		.string	"\177A"
+  54 012b 00        		.string	""
+  55 012c 0204 0810 		.string	"\002\004\b\020 "
+  55      2000 
+  56 0132 00        		.string	""
+  57 0133 417F 00   		.string	"A\177"
+  58 0136 0402 0102 		.string	"\004\002\001\002\004@@@@@"
+  58      0440 4040 
+  58      4040 00
+  59 0141 0102 0400 		.string	"\001\002\004"
+  60 0145 2054 5454 		.string	" TTTx\177DDD88DDDD8DDD\1778TTT\030\004\004~\005\005\bTTT<\177\b\004\004x"
+  60      787F 4444 
+  60      4438 3844 
+  60      4444 4438 
+  60      4444 447F 
+  61 016e 447D 4000 		.string	"D}@"
+  62 0172 2040 443D 		.string	" @D="
+  62      00
+  63 0177 7F10 2844 		.string	"\177\020(D"
+  63      00
+  64 017c 00        		.string	""
+  65 017d 417F 4000 		.string	"A\177@"
+  66 0181 7C04 7804 		.string	"|\004x\004x|\b\004\004x8DDD8|\024\024\024\b\b\024\024\024|"
+  66      787C 0804 
+  66      0478 3844 
+  66      4444 387C 
+  66      1414 1408 
+  67 019b 7C08 0404 		.string	"|\b\004\004HTTT \004\004?DD<@@ |\034 @ \034<@0@<D(\020(D\fPPP<DdTLD"
+  67      4854 5454 
+  67      2004 043F 
+  67      4444 3C40 
+  67      4020 7C1C 
+  68 01c8 0836 4141 		.string	"\b6AA"
+  68      00
+  69 01cd 00        		.string	""
+  70 01ce 7F00      		.string	"\177"
+  71 01d0 00        		.string	""
+  72 01d1 4141 3608 		.string	"AA6\b"
+  72      00
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 3
+
+
+  73 01d6 0201 0204 		.ascii	"\002\001\002\004\002"
+  73      02
+  74               		.text
+  75               	.Letext0:
+  76               		.file 1 "/usr/local/Cellar/avr-gcc/9.2.0/avr/include/stdint.h"
+  77               		.file 2 "font.c"
+  78               		.section	.debug_info,"",@progbits
+  79               	.Ldebug_info0:
+  80 0000 8B00 0000 		.long	0x8b
+  81 0004 0400      		.word	0x4
+  82 0006 0000 0000 		.long	.Ldebug_abbrev0
+  83 000a 04        		.byte	0x4
+  84 000b 01        		.uleb128 0x1
+  85 000c 0000 0000 		.long	.LASF7
+  86 0010 0C        		.byte	0xc
+  87 0011 0000 0000 		.long	.LASF8
+  88 0015 0000 0000 		.long	.LASF9
+  89 0019 0000 0000 		.long	.Ldebug_line0
+  90 001d 02        		.uleb128 0x2
+  91 001e 01        		.byte	0x1
+  92 001f 06        		.byte	0x6
+  93 0020 0000 0000 		.long	.LASF0
+  94 0024 03        		.uleb128 0x3
+  95 0025 0000 0000 		.long	.LASF10
+  96 0029 01        		.byte	0x1
+  97 002a 7E        		.byte	0x7e
+  98 002b 16        		.byte	0x16
+  99 002c 3500 0000 		.long	0x35
+ 100 0030 04        		.uleb128 0x4
+ 101 0031 2400 0000 		.long	0x24
+ 102 0035 02        		.uleb128 0x2
+ 103 0036 01        		.byte	0x1
+ 104 0037 08        		.byte	0x8
+ 105 0038 0000 0000 		.long	.LASF1
+ 106 003c 05        		.uleb128 0x5
+ 107 003d 02        		.byte	0x2
+ 108 003e 05        		.byte	0x5
+ 109 003f 696E 7400 		.string	"int"
+ 110 0043 02        		.uleb128 0x2
+ 111 0044 02        		.byte	0x2
+ 112 0045 07        		.byte	0x7
+ 113 0046 0000 0000 		.long	.LASF2
+ 114 004a 02        		.uleb128 0x2
+ 115 004b 04        		.byte	0x4
+ 116 004c 05        		.byte	0x5
+ 117 004d 0000 0000 		.long	.LASF3
+ 118 0051 02        		.uleb128 0x2
+ 119 0052 04        		.byte	0x4
+ 120 0053 07        		.byte	0x7
+ 121 0054 0000 0000 		.long	.LASF4
+ 122 0058 02        		.uleb128 0x2
+ 123 0059 08        		.byte	0x8
+ 124 005a 05        		.byte	0x5
+ 125 005b 0000 0000 		.long	.LASF5
+ 126 005f 02        		.uleb128 0x2
+ 127 0060 08        		.byte	0x8
+ 128 0061 07        		.byte	0x7
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 4
+
+
+ 129 0062 0000 0000 		.long	.LASF6
+ 130 0066 06        		.uleb128 0x6
+ 131 0067 3000 0000 		.long	0x30
+ 132 006b 7700 0000 		.long	0x77
+ 133 006f 07        		.uleb128 0x7
+ 134 0070 4300 0000 		.long	0x43
+ 135 0074 DA01      		.word	0x1da
+ 136 0076 00        		.byte	0
+ 137 0077 04        		.uleb128 0x4
+ 138 0078 6600 0000 		.long	0x66
+ 139 007c 08        		.uleb128 0x8
+ 140 007d 0000 0000 		.long	.LASF11
+ 141 0081 02        		.byte	0x2
+ 142 0082 0C        		.byte	0xc
+ 143 0083 0F        		.byte	0xf
+ 144 0084 7700 0000 		.long	0x77
+ 145 0088 05        		.uleb128 0x5
+ 146 0089 03        		.byte	0x3
+ 147 008a 0000 0000 		.long	font5x7
+ 148 008e 00        		.byte	0
+ 149               		.section	.debug_abbrev,"",@progbits
+ 150               	.Ldebug_abbrev0:
+ 151 0000 01        		.uleb128 0x1
+ 152 0001 11        		.uleb128 0x11
+ 153 0002 01        		.byte	0x1
+ 154 0003 25        		.uleb128 0x25
+ 155 0004 0E        		.uleb128 0xe
+ 156 0005 13        		.uleb128 0x13
+ 157 0006 0B        		.uleb128 0xb
+ 158 0007 03        		.uleb128 0x3
+ 159 0008 0E        		.uleb128 0xe
+ 160 0009 1B        		.uleb128 0x1b
+ 161 000a 0E        		.uleb128 0xe
+ 162 000b 10        		.uleb128 0x10
+ 163 000c 17        		.uleb128 0x17
+ 164 000d 00        		.byte	0
+ 165 000e 00        		.byte	0
+ 166 000f 02        		.uleb128 0x2
+ 167 0010 24        		.uleb128 0x24
+ 168 0011 00        		.byte	0
+ 169 0012 0B        		.uleb128 0xb
+ 170 0013 0B        		.uleb128 0xb
+ 171 0014 3E        		.uleb128 0x3e
+ 172 0015 0B        		.uleb128 0xb
+ 173 0016 03        		.uleb128 0x3
+ 174 0017 0E        		.uleb128 0xe
+ 175 0018 00        		.byte	0
+ 176 0019 00        		.byte	0
+ 177 001a 03        		.uleb128 0x3
+ 178 001b 16        		.uleb128 0x16
+ 179 001c 00        		.byte	0
+ 180 001d 03        		.uleb128 0x3
+ 181 001e 0E        		.uleb128 0xe
+ 182 001f 3A        		.uleb128 0x3a
+ 183 0020 0B        		.uleb128 0xb
+ 184 0021 3B        		.uleb128 0x3b
+ 185 0022 0B        		.uleb128 0xb
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 5
+
+
+ 186 0023 39        		.uleb128 0x39
+ 187 0024 0B        		.uleb128 0xb
+ 188 0025 49        		.uleb128 0x49
+ 189 0026 13        		.uleb128 0x13
+ 190 0027 00        		.byte	0
+ 191 0028 00        		.byte	0
+ 192 0029 04        		.uleb128 0x4
+ 193 002a 26        		.uleb128 0x26
+ 194 002b 00        		.byte	0
+ 195 002c 49        		.uleb128 0x49
+ 196 002d 13        		.uleb128 0x13
+ 197 002e 00        		.byte	0
+ 198 002f 00        		.byte	0
+ 199 0030 05        		.uleb128 0x5
+ 200 0031 24        		.uleb128 0x24
+ 201 0032 00        		.byte	0
+ 202 0033 0B        		.uleb128 0xb
+ 203 0034 0B        		.uleb128 0xb
+ 204 0035 3E        		.uleb128 0x3e
+ 205 0036 0B        		.uleb128 0xb
+ 206 0037 03        		.uleb128 0x3
+ 207 0038 08        		.uleb128 0x8
+ 208 0039 00        		.byte	0
+ 209 003a 00        		.byte	0
+ 210 003b 06        		.uleb128 0x6
+ 211 003c 01        		.uleb128 0x1
+ 212 003d 01        		.byte	0x1
+ 213 003e 49        		.uleb128 0x49
+ 214 003f 13        		.uleb128 0x13
+ 215 0040 01        		.uleb128 0x1
+ 216 0041 13        		.uleb128 0x13
+ 217 0042 00        		.byte	0
+ 218 0043 00        		.byte	0
+ 219 0044 07        		.uleb128 0x7
+ 220 0045 21        		.uleb128 0x21
+ 221 0046 00        		.byte	0
+ 222 0047 49        		.uleb128 0x49
+ 223 0048 13        		.uleb128 0x13
+ 224 0049 2F        		.uleb128 0x2f
+ 225 004a 05        		.uleb128 0x5
+ 226 004b 00        		.byte	0
+ 227 004c 00        		.byte	0
+ 228 004d 08        		.uleb128 0x8
+ 229 004e 34        		.uleb128 0x34
+ 230 004f 00        		.byte	0
+ 231 0050 03        		.uleb128 0x3
+ 232 0051 0E        		.uleb128 0xe
+ 233 0052 3A        		.uleb128 0x3a
+ 234 0053 0B        		.uleb128 0xb
+ 235 0054 3B        		.uleb128 0x3b
+ 236 0055 0B        		.uleb128 0xb
+ 237 0056 39        		.uleb128 0x39
+ 238 0057 0B        		.uleb128 0xb
+ 239 0058 49        		.uleb128 0x49
+ 240 0059 13        		.uleb128 0x13
+ 241 005a 3F        		.uleb128 0x3f
+ 242 005b 19        		.uleb128 0x19
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 6
+
+
+ 243 005c 02        		.uleb128 0x2
+ 244 005d 18        		.uleb128 0x18
+ 245 005e 00        		.byte	0
+ 246 005f 00        		.byte	0
+ 247 0060 00        		.byte	0
+ 248               		.section	.debug_aranges,"",@progbits
+ 249 0000 1400 0000 		.long	0x14
+ 250 0004 0200      		.word	0x2
+ 251 0006 0000 0000 		.long	.Ldebug_info0
+ 252 000a 04        		.byte	0x4
+ 253 000b 00        		.byte	0
+ 254 000c 0000      		.word	0
+ 255 000e 0000      		.word	0
+ 256 0010 0000 0000 		.long	0
+ 257 0014 0000 0000 		.long	0
+ 258               		.section	.debug_line,"",@progbits
+ 259               	.Ldebug_line0:
+ 260 0000 5B00 0000 		.section	.debug_str,"MS",@progbits,1
+ 260      0300 5500 
+ 260      0000 0201 
+ 260      FB0E 0D00 
+ 260      0101 0101 
+ 261               	.LASF11:
+ 262 0000 666F 6E74 		.string	"font5x7"
+ 262      3578 3700 
+ 263               	.LASF2:
+ 264 0008 756E 7369 		.string	"unsigned int"
+ 264      676E 6564 
+ 264      2069 6E74 
+ 264      00
+ 265               	.LASF10:
+ 266 0015 7569 6E74 		.string	"uint8_t"
+ 266      385F 7400 
+ 267               	.LASF4:
+ 268 001d 6C6F 6E67 		.string	"long unsigned int"
+ 268      2075 6E73 
+ 268      6967 6E65 
+ 268      6420 696E 
+ 268      7400 
+ 269               	.LASF0:
+ 270 002f 7369 676E 		.string	"signed char"
+ 270      6564 2063 
+ 270      6861 7200 
+ 271               	.LASF8:
+ 272 003b 666F 6E74 		.string	"font.c"
+ 272      2E63 00
+ 273               	.LASF6:
+ 274 0042 6C6F 6E67 		.string	"long long unsigned int"
+ 274      206C 6F6E 
+ 274      6720 756E 
+ 274      7369 676E 
+ 274      6564 2069 
+ 275               	.LASF7:
+ 276 0059 474E 5520 		.string	"GNU C17 9.2.0 -mn-flash=1 -mno-skip-bug -mmcu=avr5 -g -Os -fpack-struct -funsigned-bitfie
+ 276      4331 3720 
+ 276      392E 322E 
+ 276      3020 2D6D 
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 7
+
+
+ 276      6E2D 666C 
+ 277               	.LASF1:
+ 278 00c6 756E 7369 		.string	"unsigned char"
+ 278      676E 6564 
+ 278      2063 6861 
+ 278      7200 
+ 279               	.LASF3:
+ 280 00d4 6C6F 6E67 		.string	"long int"
+ 280      2069 6E74 
+ 280      00
+ 281               	.LASF9:
+ 282 00dd 2F55 7365 		.string	"/Users/edluffy/Documents/D1/lcdlib"
+ 282      7273 2F65 
+ 282      646C 7566 
+ 282      6679 2F44 
+ 282      6F63 756D 
+ 283               	.LASF5:
+ 284 0100 6C6F 6E67 		.string	"long long int"
+ 284      206C 6F6E 
+ 284      6720 696E 
+ 284      7400 
+ 285               		.ident	"GCC: (GNU) 9.2.0"
+GAS LISTING /var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 font.c
+/var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/b3/c8k8_7z16sxb5qhkpvrmv5jh0000gn/T//ccLVw2CZ.s:14     .progmem.data:0000000000000000 font5x7
+
+NO UNDEFINED SYMBOLS
