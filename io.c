@@ -12,8 +12,6 @@ volatile uint8_t ioCursor = 0;
 volatile bool ioPaused = false;
 volatile bool ioShowMeasure = false;
 
-
-/* --------- CONTROL INPUT ----------- */
 volatile uint16_t *rp;
 volatile uint16_t rspec = 0;
 volatile uint16_t rstep = 0;
@@ -25,7 +23,11 @@ volatile uint8_t lastpb = 1;
 
 volatile uint8_t lastportc = 0xFF;
 
+volatile uint8_t adcbuf[BUFSIZE];
+volatile uint16_t adcn = 0;
+
 uint8_t cnt = 0;
+
 
 void init_control(void)
 {
@@ -93,8 +95,6 @@ ISR(PCINT2_vect)
 }
 
 /* ------------ ADC ----------------- */
-volatile uint8_t adcbuf[BUFSIZE];
-volatile uint16_t adcn = 0;
 
 void init_adc(void)
 {

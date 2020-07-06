@@ -1,3 +1,6 @@
 *.o
 *.a
 makefile.old
+.ccls-cache/
+.clangd/
+compile_commands.json

@@ -51,7 +51,7 @@ $(LIBTRG): $(OBJDEPS)
 
 #### Cleanup ####
 clean:
-	$(REMOVE) $(LIBTRG)
+	#$(REMOVE) $(LIBTRG)
 	$(REMOVE) $(OBJDEPS)
 	$(REMOVE) $(LST)
 	

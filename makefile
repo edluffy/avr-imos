@@ -5,7 +5,7 @@ MCU=atmega644p
 
 CC=avr-gcc
 OBJCOPY=avr-objcopy
-CFLAGS= -mmcu=${MCU} -DF_CPU=12000000 -Wall -Os -u vfprintf -lprintf_flt -lm -L $(shell pwd)/lcdlib
+CFLAGS= -mmcu=${MCU} -isystem/usr/local/opt/avr-gcc/avr/include -DF_CPU=12000000 -Wall -Os -u vfprintf -lprintf_flt -lm -L $(shell pwd)/lcdlib
 PORT=
 
 # $@ is the name of the current target

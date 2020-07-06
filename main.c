@@ -1,10 +1,10 @@
 #include "util/delay.h"
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "ui.h"
 #include "io.h"
-#include "io.c" /* temp */
 
 
 /* TODO: 
@@ -17,8 +17,7 @@
 * draw red grid outline when overlap
 */
 
-enum menuState {CURSOR, MINIMAP, MEASURE, SCALE, TIMEBASE, OFFSET, TRIGGER};
-
+enum menuState {CURSOR, MINIMAP, MEASURE, SCALE, TIMEBASE, OFFSET, TRIGGER };
 
 int main(void)
 {
@@ -118,58 +117,58 @@ int main(void)
 
 		/* ------- User Input -------- */
 		switch(pbstate){
-			case CURSOR:
-				rp = &mcpos[ioCursor];
-				rspec = 255;
-				rstep=1, rmax=300, rmin=20;
+                case CURSOR:
+                  rp = &mcpos[ioCursor];
+                  rspec = 255;
+                  rstep = 1, rmax = 300, rmin = 20;
 
-				for(int i=0; i < 4; i++){
-					measureCursor[i].hover = (i == ioCursor) ? true : false;
-					uiCursorMove(&measureCursor[i], mcpos[i]);
-					uiCursorDraw(&measureCursor[i]);
-				}
-				break;
-			case MINIMAP:
-				rp = &scrollpos, rspec = 254;
-				rstep=1, rmax=72, rmin=1;
+                  for (int i = 0; i < 4; i++) {
+                    measureCursor[i].hover = (i == ioCursor) ? true : false;
+                    uiCursorMove(&measureCursor[i], mcpos[i]);
+                    uiCursorDraw(&measureCursor[i]);
+                  }
+                  break;
+                case MINIMAP:
+                  rp = &scrollpos, rspec = 254;
+                  rstep = 1, rmax = 72, rmin = 1;
 
-				for(int i=0; i < 4; i++)
-					uiCursorHide(&measureCursor[i]);
-				break;
+                  for (int i = 0; i < 4; i++)
+                    uiCursorHide(&measureCursor[i]);
+                  break;
 
-			case MEASURE:
-				rp = 0, rspec = 253;
-				rstep=rmax=rmin=0;
-				break;
+                case MEASURE:
+                  rp = 0, rspec = 253;
+                  rstep = rmax = rmin = 0;
+                  break;
 
-			case SCALE:
-				rp = &scale, rspec = 50;
-				rstep=5, rmax=100, rmin=0;
+                case SCALE:
+                  rp = &scale, rspec = 50;
+                  rstep = 5, rmax = 100, rmin = 0;
 
-				break;
+                  break;
 
-			case TIMEBASE:
-				rp = &timebase, rspec = 0;
-				rstep=2, rmax=100, rmin=0;
-				break;
+                case TIMEBASE:
+                  rp = &timebase, rspec = 0;
+                  rstep = 2, rmax = 100, rmin = 0;
+                  break;
 
-			case OFFSET:
-				rp = &offset, rspec = 120;
-				rstep=5, rmax=220, rmin=20;
+                case OFFSET:
+                  rp = &offset, rspec = 120;
+                  rstep = 5, rmax = 220, rmin = 20;
 
-				uiCursorMove(&offsetCursor, offset);
-				break;
+                  uiCursorMove(&offsetCursor, offset);
+                  break;
 
-			case TRIGGER:
-				rp = &trigger, rspec = 120;
-				rstep=5, rmax=220, rmin=20;
+                case TRIGGER:
+                  rp = &trigger, rspec = 120;
+                  rstep = 5, rmax = 220, rmin = 20;
 
-				uiCursorMove(&triggerCursor, trigger);
-				break;
+                  uiCursorMove(&triggerCursor, trigger);
+                  break;
 
-			case 7: // NOTHING
-			default:
-				break;
+                case 7: // NOTHING
+                default:
+                  break;
 
 		}
 	}

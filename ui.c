@@ -136,7 +136,7 @@ void uiCursorHide(uiCursor * const me)
 	me->old = false;
 }
 
-/* ----------- uiGrid -------*/
+/* ----------- uiGrid ------- */
 void uiGridDraw(uiGrid * const me)
 {
 	int pos, n;
