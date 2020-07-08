@@ -13,17 +13,26 @@
 
 #define FULLCONV (ADCREF_V/ADCMAXREAD) * CONVRATE
 
-volatile uint16_t scrollpos;
-volatile uint16_t scale;
-volatile uint16_t timebase;
-volatile uint16_t offset;
-volatile uint16_t trigger;
-volatile uint16_t mcpos[4];
+
+/* ----------- ioPrefs ---------- */
+typedef struct{
+	volatile uint16_t scrollpos;
+	volatile uint16_t scale;
+	volatile uint16_t timebase;
+	volatile uint16_t offset;
+	volatile uint16_t trigger;
+	volatile uint16_t mcpos[4];
+} ioPrefs;
+
+void ioPrefsReset(ioPrefs * const me);
+
 
 volatile uint8_t ioTrigState;
 volatile uint8_t ioCursor;
 volatile bool ioPaused;
 volatile bool ioShowMeasure;
+
+uint8_t cnt;
 
 
 /* --------- CONTROL INPUT ----------- */
@@ -37,8 +46,6 @@ volatile uint8_t pbstate;
 volatile uint8_t lastpb;
 
 volatile uint8_t lastportc;
-
-uint8_t cnt;
 
 void init_control(void);
 void read_rotb(void);
@@ -58,12 +65,14 @@ volatile uint16_t adcn;
 
 void init_adc(void);
 void delay_reading_us(int t);
-void start_adc(void);
+void start_adc(uint16_t tb);
 
+/*
 double ioGetMax(void);
 double ioGetMin(void);
 double ioGetAvr(void);
 double ioGetdV(void);
 double ioGetdT(void);
+*/
 
 #endif

@@ -1,12 +1,5 @@
 #include "io.h"
 
-volatile uint16_t scrollpos = 36;
-volatile uint16_t scale = 50;
-volatile uint16_t timebase = 0;
-volatile uint16_t offset = 120;
-volatile uint16_t trigger = 120;
-volatile uint16_t mcpos[4] = {95, 245, 55, 165};
-
 volatile uint8_t ioTrigState = 2;
 volatile uint8_t ioCursor = 0;
 volatile bool ioPaused = false;
@@ -28,6 +21,20 @@ volatile uint16_t adcn = 0;
 
 uint8_t cnt = 0;
 
+/* ----------- ioPrefs ---------- */
+void ioPrefsReset(ioSetting * const me)
+{
+	me->scrollpos = 36;
+	me->scale = 50;
+	me->timebase = 0;
+	me->offset = 120;
+	me->trigger = 120;
+
+	me->mcpos[0] = 95;
+	me->mcpos[1] = 245;
+	me->mcpos[2] = 55;
+	me->mcpos[3] = 165;
+}
 
 void init_control(void)
 {
@@ -120,11 +127,11 @@ void delay_reading_us(int t){
 	while(t--) _delay_us(1);
 }
 
-void start_adc(void){
+void start_adc(uint16_t tb){
 	for(adcn = 0; adcn < BUFSIZE; adcn++){
 		ADCSRA |= _BV(ADSC);
 		adcbuf[adcn] = ADCH;
-		delay_reading_us(timebase);
+		delay_reading_us(tb);
 	}
 /*
 	uint8_t max, min;
@@ -137,6 +144,7 @@ void start_adc(void){
 	*/
 }
 
+/*
 double ioGetMax(void)
 {
 	int i, max;
@@ -170,6 +178,7 @@ double ioGetdT(void)
 {
 	return ((10.0+timebase)*abs(mcpos[0]-mcpos[1])) / 1000;
 }
+*/
 
 /*
 uint16_t failcount = 0;

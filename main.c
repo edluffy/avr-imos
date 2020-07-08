@@ -17,7 +17,15 @@
 * draw red grid outline when overlap
 */
 
-enum menuState {CURSOR, MINIMAP, MEASURE, SCALE, TIMEBASE, OFFSET, TRIGGER };
+enum Menu{
+	CURSOR_MENU,
+	MINIMAP_MENU,
+	MEASURE_MENU,
+	SCALE_MENU,
+	TIMEBASE_MENU,
+	OFFSET_MENU,
+	TRIGGER_MENU
+};
 
 int main(void)
 {
@@ -39,6 +47,7 @@ int main(void)
 	uiSlider minimap = {.x=110, .y=12, .pos=10, .color=GREEN};
 
 	bool clearMeasureFlag = false;
+	/*
 	uiText dVDisplay = {.x=SPAD+5, .y=23, .text="dV: ", .unit="V"};
 	uiText dTDisplay = {.x=SPAD+5, .y=35, .text="dT: ", .unit="ms"};
 
@@ -47,6 +56,7 @@ int main(void)
 	uiText vppDisplay = {.x=SPAD+5, .y=185, .text="Vpp : ", .unit="V"};
 	uiText vavrDisplay = {.x=SPAD+5, .y=197, .text="Vavr: ", .unit="V"};
 	uiText vrmsDisplay = {.x=SPAD+5, .y=209, .text="Vrms: ", .unit="V"};
+	*/
 
 	uiCursor offsetCursor  = {.arrow='<', .color=BLACK, .trace=false};
 	uiCursor triggerCursor = {.arrow='>', .color=BLACK, .trace=false};
@@ -70,18 +80,21 @@ int main(void)
 	for(int i=0; i < 7; i++)
 		uiTextBoxDraw(&optionBox[i]);
 
+	ioSetting user_prefs;
+	ioSettingReset(&user_prefs);
+
 	for/*ever*/(;;)
 	{
 		//ioCheckTrigger();
 
 		/* ------- Grid and Plotting -------- */
-		if(!ioPaused && cnt%2==0) start_adc();
+		if(!ioPaused && cnt%2==0) start_adc(user_prefs.timebase);
 		uiGridDraw(&grid);
-		uiPlotUpdate(&plot, scale/100.0, scrollpos*10, offset);
+		uiPlotUpdate(&plot, user_prefs.scale/100.0, user_prefs.scrollpos*10, user_prefs.offset);
 
 		/* ------- Minimap -------- */
-		uiSliderMove(&minimap, scrollpos);
-		if(pbstate == MINIMAP)
+		uiSliderMove(&minimap, user_prefs.scrollpos);
+		if(pbstate == MINIMAP_MENU)
 			uiSliderStatus(&minimap, CYAN);
 		else if(plot.clipping)
 			uiSliderStatus(&minimap, RED);
@@ -95,12 +108,13 @@ int main(void)
 			uiSliderStatus(&minimap, GREEN);
 
 		/* ------- Option Boxes -------- */
-		if(pbstate != MINIMAP)
+		if(pbstate != MINIMAP_MENU)
 			uiTextBoxSelect(&optionBox[pbstate], true);
 		uiTextBoxSelect(&optionBox[lastpb], false);
 
 		/* ------- Measurement Menu -------- */
 		if(ioShowMeasure){
+			/*
 			uiTextRefresh(&dVDisplay, ioGetdV());
 			uiTextRefresh(&dTDisplay, ioGetdT());
 
@@ -110,6 +124,7 @@ int main(void)
 			uiTextRefresh(&vavrDisplay, ioGetAvr());
 			uiTextRefresh(&vrmsDisplay, 0.707*ioGetMax());
 			clearMeasureFlag = true;
+			*/
 		}
 
 		if(!ioShowMeasure && clearMeasureFlag)
@@ -117,53 +132,53 @@ int main(void)
 
 		/* ------- User Input -------- */
 		switch(pbstate){
-                case CURSOR:
-                  rp = &mcpos[ioCursor];
+                case CURSOR_MENU:
+                  rp = &user_prefs.mcpos[ioCursor];
                   rspec = 255;
                   rstep = 1, rmax = 300, rmin = 20;
 
                   for (int i = 0; i < 4; i++) {
                     measureCursor[i].hover = (i == ioCursor) ? true : false;
-                    uiCursorMove(&measureCursor[i], mcpos[i]);
+                    uiCursorMove(&measureCursor[i], user_prefs.mcpos[i]);
                     uiCursorDraw(&measureCursor[i]);
                   }
                   break;
-                case MINIMAP:
-                  rp = &scrollpos, rspec = 254;
+                case MINIMAP_MENU:
+                  rp = &user_prefs.scrollpos, rspec = 254;
                   rstep = 1, rmax = 72, rmin = 1;
 
                   for (int i = 0; i < 4; i++)
                     uiCursorHide(&measureCursor[i]);
                   break;
 
-                case MEASURE:
+                case MEASURE_MENU:
                   rp = 0, rspec = 253;
                   rstep = rmax = rmin = 0;
                   break;
 
-                case SCALE:
-                  rp = &scale, rspec = 50;
+                case SCALE_MENU:
+                  rp = &user_prefs.scale, rspec = 50;
                   rstep = 5, rmax = 100, rmin = 0;
 
                   break;
 
-                case TIMEBASE:
-                  rp = &timebase, rspec = 0;
+                case TIMEBASE_MENU:
+                  rp = &user_prefs.timebase, rspec = 0;
                   rstep = 2, rmax = 100, rmin = 0;
                   break;
 
-                case OFFSET:
-                  rp = &offset, rspec = 120;
+                case OFFSET_MENU:
+                  rp = &user_prefs.offset, rspec = 120;
                   rstep = 5, rmax = 220, rmin = 20;
 
-                  uiCursorMove(&offsetCursor, offset);
+                  uiCursorMove(&offsetCursor, user_prefs.offset);
                   break;
 
-                case TRIGGER:
-                  rp = &trigger, rspec = 120;
+                case TRIGGER_MENU:
+                  rp = &user_prefs.trigger, rspec = 120;
                   rstep = 5, rmax = 220, rmin = 20;
 
-                  uiCursorMove(&triggerCursor, trigger);
+                  uiCursorMove(&triggerCursor, user_prefs.trigger);
                   break;
 
                 case 7: // NOTHING
