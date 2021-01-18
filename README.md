@@ -11,7 +11,6 @@ Display: DT022BTFT with ILI9341 controller chip.
 </p>
 
 ## Features
-Support for exporting/importing annotations in different formats:
 - [X] Multiple cursor support - for both time and voltage axis
 - [X] Ability to scroll through signal with minimap - also voltage scale and offset control.
 - [X] Variable trigger modes - including free-running mode
