@@ -80,8 +80,8 @@ int main(void)
 	for(int i=0; i < 7; i++)
 		uiTextBoxDraw(&optionBox[i]);
 
-	ioSetting user_prefs;
-	ioSettingReset(&user_prefs);
+	ioPrefs user_prefs;
+	ioPrefsReset(&user_prefs);
 
 	for/*ever*/(;;)
 	{

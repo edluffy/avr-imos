@@ -22,7 +22,7 @@ volatile uint16_t adcn = 0;
 uint8_t cnt = 0;
 
 /* ----------- ioPrefs ---------- */
-void ioPrefsReset(ioSetting * const me)
+void ioPrefsReset(ioPrefs * const me)
 {
 	me->scrollpos = 36;
 	me->scale = 50;
