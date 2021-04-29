@@ -1,4 +1,5 @@
 #include "io.h"
+#include "ui.h"
 
 volatile uint8_t ioTrigState = 2;
 volatile uint8_t ioCursor = 0;
@@ -20,6 +21,11 @@ volatile uint8_t adcbuf[BUFSIZE];
 volatile uint16_t adcn = 0;
 
 uint8_t cnt = 0;
+
+// New stuffs
+volatile uint16_t vmax;
+volatile uint16_t vmin;
+
 
 /* ----------- ioPrefs ---------- */
 void ioPrefsReset(ioPrefs * const me)
@@ -133,7 +139,6 @@ void start_adc(uint16_t tb){
 		adcbuf[adcn] = ADCH;
 		delay_reading_us(tb);
 	}
-/*
 	uint8_t max, min;
 	max = 0, min = 255;
 	for(int i=0; i < BUFSIZE; i++){
@@ -141,86 +146,9 @@ void start_adc(uint16_t tb){
 		if(adcbuf[i] < min) min = adcbuf[i];
 	}
 	vmax = max, vmin = min;
-	*/
 }
 
-/*
-double ioGetMax(void)
+double ioGetText(void)
 {
-	int i, max;
-	for(i=max=0; i < BUFSIZE; i++)
-		max = (adcbuf[i] > max) ? adcbuf[i] : max;
-	return max * FULLCONV;
+    return 69;
 }
-
-double ioGetMin(void)
-{
-	int i, min;
-	for(i=0,min=ADCMAXREAD; i< BUFSIZE; i++)
-		min = (adcbuf[i] < min) ? adcbuf[i] : min;
-	return min * FULLCONV;
-}
-
-double ioGetAvr(void)
-{
-	int i, sum;
-	for(i=sum=0; i< BUFSIZE; i++)
-		sum += adcbuf[i];
-	return sum/BUFSIZE * FULLCONV;
-}
-
-double ioGetdV(void)
-{
-	return (abs(mcpos[2]-mcpos[3])/((scale/100.0))) * FULLCONV;
-}
-
-double ioGetdT(void)
-{
-	return ((10.0+timebase)*abs(mcpos[0]-mcpos[1])) / 1000;
-}
-*/
-
-/*
-uint16_t failcount = 0;
-uint16_t wincount = 0;
-void checkTrigger(void)
-{
-	uint8_t rising, above;
-	rising = above = 0;
-
-	for(int n=1; n < 10; n++)
-		rising = (adcbuf[scrollpos*10] <= adcbuf[scrollpos*10+n]) ? 1 : rising;
-
-	if(adcbuf[scrollpos*10]+(120-offset)>=(120-trigger)/(scale/100.0))
-		above = 1, failcount = 0;
-
-
-	if(above)
-		wincount++;
-	else
-		failcount++;
-
-	if(rising && above)
-		ioTrigState = 0;
-	else
-		ioTrigState = 2;
-	else if(failcount > 20)
-		ioTrigState = 2;
-	else
-		ioTrigState = 1;
-		
-}
-bool toggle = false;
-void ioCheckTrigger(void)
-{
-	ADCSRA |= _BV(ADSC);
-	uint8_t testsignal = ADCH;
-	if(testsignal+(120-offset)>=(120-trigger)/(scale/100.0) && toggle)
-		ioTrigState = 1;
-	else
-		ioTrigState = 0;
-
-	toggle = !toggle;
-}
-*/
-

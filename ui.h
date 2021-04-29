@@ -26,9 +26,10 @@
 #define NXGRID 11
 #define NYGRID 15
 
-// Utils
+/* ----------- Utility ---------- */
 uint8_t getTextw(const char *text);
-void debugPrint(int n);
+void debugPrint(volatile int n);
+void uiMoveRect(rectangle *r, int x, int y, int color, int shadow);
 
 /* ----------- uiSlider ---------- */
 typedef struct{
@@ -45,10 +46,7 @@ void uiSliderDraw(uiSlider * const me);
 /* ----------- uiText -------*/
 typedef struct{
 	uint16_t x, y;
-	char text[7];
-	char unit[3];
-
-	double value;
+	char text[140];
 } uiText;
 
 void uiTextDraw(uiText * const me);
@@ -102,16 +100,5 @@ typedef struct{
 
 void uiPlotUpdate(uiPlot * const me, double scale, uint16_t startp, uint8_t offset);
 void uiPlotDraw(uiPlot * const me);
-
-/* ----------- Utility ---------- */
-
-uint8_t getTextw(const char *text);
-void debugPrint(volatile int n);
-void uiMoveRect(rectangle *r, int x, int y, int color, int shadow);
-
-
-
-
-
 
 #endif

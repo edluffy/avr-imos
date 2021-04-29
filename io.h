@@ -67,12 +67,6 @@ void init_adc(void);
 void delay_reading_us(int t);
 void start_adc(uint16_t tb);
 
-/*
-double ioGetMax(void);
-double ioGetMin(void);
-double ioGetAvr(void);
-double ioGetdV(void);
-double ioGetdT(void);
-*/
+double ioGetText(void);
 
 #endif

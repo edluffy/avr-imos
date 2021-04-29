@@ -6,17 +6,6 @@
 #include "ui.h"
 #include "io.h"
 
-
-/* TODO: 
-* graphical imos start screen
-* add SLIDER, pause when clicked
-* add CURSOR optionBox (with two horizontal cursors)
-* add OPTION optionBox
-*
-* draw extra info on graph when in certain options
-* draw red grid outline when overlap
-*/
-
 enum Menu{
 	CURSOR_MENU,
 	MINIMAP_MENU,
@@ -47,16 +36,7 @@ int main(void)
 	uiSlider minimap = {.x=110, .y=12, .pos=10, .color=GREEN};
 
 	bool clearMeasureFlag = false;
-	/*
-	uiText dVDisplay = {.x=SPAD+5, .y=23, .text="dV: ", .unit="V"};
-	uiText dTDisplay = {.x=SPAD+5, .y=35, .text="dT: ", .unit="ms"};
-
-	uiText vmaxDisplay = {.x=SPAD+5, .y=161, .text="Vmax: ", .unit="V"};
-	uiText vminDisplay = {.x=SPAD+5, .y=173, .text="Vmin: ", .unit="V"};
-	uiText vppDisplay = {.x=SPAD+5, .y=185, .text="Vpp : ", .unit="V"};
-	uiText vavrDisplay = {.x=SPAD+5, .y=197, .text="Vavr: ", .unit="V"};
-	uiText vrmsDisplay = {.x=SPAD+5, .y=209, .text="Vrms: ", .unit="V"};
-	*/
+    uiText textDisplay = {.x=SPAD+5, .y=23, .text="140 characters goes here"};
 
 	uiCursor offsetCursor  = {.arrow='<', .color=BLACK, .trace=false};
 	uiCursor triggerCursor = {.arrow='>', .color=BLACK, .trace=false};
@@ -85,8 +65,6 @@ int main(void)
 
 	for/*ever*/(;;)
 	{
-		//ioCheckTrigger();
-
 		/* ------- Grid and Plotting -------- */
 		if(!ioPaused && cnt%2==0) start_adc(user_prefs.timebase);
 		uiGridDraw(&grid);
@@ -100,10 +78,6 @@ int main(void)
 			uiSliderStatus(&minimap, RED);
 		else if(ioPaused)
 			uiSliderStatus(&minimap, LIGHTGREY);
-/*		else if(ioTrigState == 0) // Rising and above
-			uiSliderStatus(&minimap, GREEN);
-		else if(ioTrigState == 1) // Timeout
-			uiSliderStatus(&minimap, ORANGE); */
 		else // Not triggering
 			uiSliderStatus(&minimap, GREEN);
 
@@ -114,17 +88,8 @@ int main(void)
 
 		/* ------- Measurement Menu -------- */
 		if(ioShowMeasure){
-			/*
-			uiTextRefresh(&dVDisplay, ioGetdV());
-			uiTextRefresh(&dTDisplay, ioGetdT());
-
-			uiTextRefresh(&vmaxDisplay, ioGetMax());
-			uiTextRefresh(&vminDisplay, ioGetMin());
-			uiTextRefresh(&vppDisplay, ioGetMax()-ioGetMin());
-			uiTextRefresh(&vavrDisplay, ioGetAvr());
-			uiTextRefresh(&vrmsDisplay, 0.707*ioGetMax());
+			uiTextRefresh(&textDisplay, ioGetText());
 			clearMeasureFlag = true;
-			*/
 		}
 
 		if(!ioShowMeasure && clearMeasureFlag)

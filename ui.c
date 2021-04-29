@@ -34,17 +34,18 @@ void uiSliderDraw(uiSlider * const me)
 
 /* ----------- uiText -------*/
 
-void uiTextRefresh(uiText * const me, double newval){
-	me->value = newval, uiTextDraw(me);
+void uiTextRefresh(uiText * const me, double newval)
+{
+    uiTextDraw(me);
 }
 
 void uiTextDraw(uiText * const me)
 {
-	char strbuf[15];
-	sprintf(strbuf, "%s%4.2f%s", me->text, me->value, me->unit);
+	char strbuf[140];
+	sprintf(strbuf, "%s%i", me->text, 140);
 
 	display.x = me->x, display.y = me->y;
-	display_string(strbuf);
+	display_string(me->text);
 }
 
 /* ----------- uiTextBox -------*/
